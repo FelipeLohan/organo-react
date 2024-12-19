@@ -1,14 +1,12 @@
 import { Banner } from './components/Banner';
-import { TextInput } from './components/TextInput';
+import { Form } from './components/Form';
 
 function App() {
   return (
     <>
       <div>
         <Banner />
-        <TextInput />
-        <TextInput />
-        <TextInput />
+        <Form />
       </div>  
     </>
   )

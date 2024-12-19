@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import PropTypes from 'prop-types';
+
 
 const InputContainer = styled.div`
   display: flex;
@@ -7,24 +9,30 @@ const InputContainer = styled.div`
   margin-bottom: 20px;
 
   & label {
-    font-size: 3vmin;
+    font-size: 2.5vmin;
+    margin-bottom: 5px;
   }
 
   & input {
-    font-size: 2.5vmin;
-    padding: 5px;
+    font-size: 2vmin;
+    padding: 10px;
     border: 0.3px solid #c2c2c2;
     border-radius: 6px;
   }
 `
 
-export const TextInput = () => {
+export const TextInput = (props) => {
   return (
     <>
       <InputContainer>
-        <label>Nome</label>
-        <input placeholder="Digite seu nome" />
+        <label>{props.label}</label>
+        <input placeholder={props.placeholder} />
       </InputContainer>
     </>
   );
+};
+
+TextInput.propTypes = {
+  label: PropTypes.string.isRequired,
+  placeholder: PropTypes.string.isRequired,
 };
