@@ -26,7 +26,7 @@ export const TextInput = (props) => {
     <>
       <InputContainer>
         <label>{props.label}</label>
-        <input placeholder={props.placeholder} />
+        <input required={props.valueRequired} placeholder={props.placeholder} />
       </InputContainer>
     </>
   );
@@ -35,4 +35,5 @@ export const TextInput = (props) => {
 TextInput.propTypes = {
   label: PropTypes.string.isRequired,
   placeholder: PropTypes.string.isRequired,
+  valueRequired: PropTypes.string.isRequired,
 };
