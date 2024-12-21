@@ -22,11 +22,16 @@ const InputContainer = styled.div`
 `
 
 export const TextInput = (props) => {
+
+  const handleOnChange = (event) => {
+    props.handleState(event.target.value)
+  }
+
   return (
     <>
       <InputContainer>
         <label>{props.label}</label>
-        <input required={props.valueRequired} placeholder={props.placeholder} />
+        <input value={props.value} onChange={handleOnChange} required={props.valueRequired} placeholder={props.placeholder} />
       </InputContainer>
     </>
   );
@@ -36,4 +41,6 @@ TextInput.propTypes = {
   label: PropTypes.string.isRequired,
   placeholder: PropTypes.string.isRequired,
   valueRequired: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
+  handleState: PropTypes.string.isRequired,
 };

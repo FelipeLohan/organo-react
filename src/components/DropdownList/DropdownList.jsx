@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 const DropdownListContainer = styled.div`
   display: flex;
@@ -18,30 +18,35 @@ const DropdownListContainer = styled.div`
     border: 0.3px solid #c2c2c2;
     border-radius: 6px;
   }
-`
+`;
 
+const DropdownList = (props) => {
 
- const DropdownList = (props) => {
+  const handleOnChange = (event) => {
+    props.handleState(event.target.value)
+  }
+
   return (
     <>
-    <DropdownListContainer>
-      <label>{props.label}</label>
-      <select required={props.valueRequired}>
-        <option></option>
-        {props.item.map(e => {
-          return <option key={e}>{e}</option>
-        })}
-      </select>
-    </DropdownListContainer>
+      <DropdownListContainer>
+        <label>{props.label}</label>
+        <select onChange={handleOnChange} value={props.value} required={props.valueRequired}>
+          <option></option>
+          {props.item.map((e) => {
+            return <option key={e}>{e}</option>;
+          })}
+        </select>
+      </DropdownListContainer>
     </>
-  )
-}
+  );
+};
 
 DropdownList.propTypes = {
   label: PropTypes.string.isRequired,
   item: PropTypes.string.isRequired,
   valueRequired: PropTypes.string.isRequired,
+  handleState: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
 };
 
-export { DropdownList }
-
+export { DropdownList };
