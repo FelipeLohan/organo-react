@@ -20,15 +20,7 @@ const FormContainer = styled.section`
 `;
 
 export const Form = (props) => {
-  const items = [
-    "Programação",
-    "Front-End",
-    "Data Science",
-    "DevOps",
-    "UX e Design",
-    "Mobile",
-    "Inovação e Gestão",
-  ];
+
 
   const [nome, setNome] = useState("");
   const [cargo, setCargo] = useState("");
@@ -70,7 +62,7 @@ export const Form = (props) => {
             value={imagem}
             handleState={(e) => setImagem(e)}
           />
-          <DropdownList value={time} handleState={e => setTime(e)} valueRequired={true} label="Time" item={items} />
+          <DropdownList value={time} handleState={e => setTime(e)} valueRequired={true} label="Time" item={props.teamList} />
           <CtaButton>Criar Card</CtaButton>
         </form>
       </FormContainer>
@@ -80,4 +72,5 @@ export const Form = (props) => {
 
 Form.propTypes = {
   handleNewMember: PropTypes.string.isRequired,
+  teamList: PropTypes.string.isRequired,
 };
